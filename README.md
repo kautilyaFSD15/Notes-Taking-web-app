@@ -7,19 +7,19 @@ A simple file management web app built with **Node.js**, **Express**, and **EJS*
 ## 🖼️ Screenshots
 
 ### 🏠 Home Dashboard
-![Home Dashboard](./svg-illustrations/01-home-dashboard.svg)
+![Home Dashboard](./01-home-dashboard.svg)
 
 ### ➕ Create Task Flow
-![Create Task Flow](./svg-illustrations/02-create-task-flow.svg)
+![Create Task Flow](./02-create-task-flow.svg)
 
 ### 📄 View File Page
-![Show File Page](./svg-illustrations/03-show-file-page.svg)
+![Show File Page](./03-show-file-page.svg)
 
 ### ✏️ Edit / Rename File
-![Edit Rename Page](./svg-illustrations/04-edit-rename-page.svg)
+![Edit Rename Page](./04-edit-rename-page.svg)
 
 ### 🏗️ App Architecture
-![App Architecture](./svg-illustrations/05-architecture.svg)
+![App Architecture](./05-architecture.svg)
 
 ---
 
