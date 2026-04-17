@@ -1,0 +1,85 @@
+<svg width="100%" viewBox="0 0 680 400" role="img" xmlns="http://www.w3.org/2000/svg">
+  <title>App Architecture</title>
+  <desc>Architecture overview of the Node.js / Express / EJS File Manager app</desc>
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="context-stroke" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- Background -->
+  <rect width="680" height="400" rx="14" fill="#18181b"/>
+
+  <!-- Title -->
+  <text x="340" y="36" text-anchor="middle" font-family="sans-serif" font-size="14" fill="#a1a1aa" font-weight="600" letter-spacing=".5">App Architecture</text>
+
+  <!-- BROWSER -->
+  <rect x="24" y="56" width="140" height="130" rx="10" fill="#27272a" stroke="#3f3f46" stroke-width="1"/>
+  <text x="94" y="78" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#a1a1aa" font-weight="600">Browser</text>
+  <rect x="38" y="90" width="112" height="24" rx="6" fill="#3f3f46"/>
+  <text x="94" y="106" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#71717a">GET /</text>
+  <rect x="38" y="120" width="112" height="24" rx="6" fill="#3f3f46"/>
+  <text x="94" y="136" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#71717a">GET /file/:name</text>
+  <rect x="38" y="150" width="112" height="24" rx="6" fill="#3f3f46"/>
+  <text x="94" y="166" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#71717a">POST /create</text>
+
+  <!-- Arrows: Browser → Express -->
+  <line x1="164" y1="104" x2="232" y2="104" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="164" y1="134" x2="232" y2="160" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="164" y1="162" x2="232" y2="216" stroke="#3b82f6" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- EXPRESS SERVER -->
+  <rect x="232" y="64" width="200" height="230" rx="10" fill="#1e3a5f" stroke="#2563eb" stroke-width="1"/>
+  <text x="332" y="86" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#93c5fd" font-weight="600">Express Server</text>
+  <text x="332" y="102" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#3b82f6">index.js — port 3000</text>
+
+  <!-- Route boxes inside Express -->
+  <rect x="248" y="112" width="168" height="28" rx="6" fill="#1d4ed8" opacity=".6"/>
+  <text x="332" y="130" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#bfdbfe">GET /  →  fs.readdir()</text>
+  <rect x="248" y="148" width="168" height="28" rx="6" fill="#1d4ed8" opacity=".6"/>
+  <text x="332" y="166" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#bfdbfe">GET /file/:name  →  readFile</text>
+  <rect x="248" y="184" width="168" height="28" rx="6" fill="#1d4ed8" opacity=".6"/>
+  <text x="332" y="202" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#bfdbfe">GET /edit/:name  →  render</text>
+  <rect x="248" y="220" width="168" height="28" rx="6" fill="#1d4ed8" opacity=".6"/>
+  <text x="332" y="238" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#bfdbfe">POST /create  →  writeFile</text>
+  <rect x="248" y="256" width="168" height="28" rx="6" fill="#1d4ed8" opacity=".6"/>
+  <text x="332" y="274" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#bfdbfe">POST /edit  →  fs.rename()</text>
+
+  <!-- Arrow: Express → EJS views -->
+  <line x1="432" y1="126" x2="488" y2="94" stroke="#a855f7" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="432" y1="162" x2="488" y2="140" stroke="#a855f7" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <line x1="432" y1="198" x2="488" y2="190" stroke="#a855f7" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- EJS VIEWS -->
+  <rect x="488" y="64" width="168" height="170" rx="10" fill="#2d1b5e" stroke="#7c3aed" stroke-width="1"/>
+  <text x="572" y="86" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#c4b5fd" font-weight="600">EJS Views</text>
+  <text x="572" y="102" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#7c3aed">views/</text>
+  <rect x="504" y="112" width="136" height="28" rx="6" fill="#4c1d95" opacity=".7"/>
+  <text x="572" y="130" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ddd6fe">index.ejs</text>
+  <rect x="504" y="148" width="136" height="28" rx="6" fill="#4c1d95" opacity=".7"/>
+  <text x="572" y="166" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ddd6fe">show.ejs</text>
+  <rect x="504" y="184" width="136" height="28" rx="6" fill="#4c1d95" opacity=".7"/>
+  <text x="572" y="202" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#ddd6fe">edit.ejs</text>
+
+  <!-- Arrow: Express → Files -->
+  <line x1="332" y1="294" x2="332" y2="330" stroke="#22c55e" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- FILES on disk -->
+  <rect x="170" y="330" width="330" height="52" rx="10" fill="#14301a" stroke="#16a34a" stroke-width="1"/>
+  <text x="335" y="352" text-anchor="middle" font-family="sans-serif" font-size="12" fill="#86efac" font-weight="600">./files/  — local filesystem</text>
+  <text x="335" y="370" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#4ade80">shopping.txt  ·  groceries.txt  ·  notes.txt  ·  …</text>
+
+  <!-- Tailwind CSS note -->
+  <rect x="24" y="220" width="140" height="44" rx="8" fill="#27272a" stroke="#3f3f46" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="94" y="238" text-anchor="middle" font-family="sans-serif" font-size="11" fill="#71717a" font-weight="500">Tailwind CSS</text>
+  <text x="94" y="254" text-anchor="middle" font-family="sans-serif" font-size="10" fill="#3f3f46">CDN — all views</text>
+
+  <!-- Bottom legend -->
+  <circle cx="40" cy="392" r="5" fill="#3b82f6"/>
+  <text x="52" y="396" font-family="sans-serif" font-size="10" fill="#52525b">HTTP requests</text>
+  <circle cx="160" cy="392" r="5" fill="#a855f7"/>
+  <text x="172" y="396" font-family="sans-serif" font-size="10" fill="#52525b">render()</text>
+  <circle cx="250" cy="392" r="5" fill="#22c55e"/>
+  <text x="262" y="396" font-family="sans-serif" font-size="10" fill="#52525b">fs operations</text>
+</svg>
